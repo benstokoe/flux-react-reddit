@@ -1,20 +1,21 @@
 var React = require('react'),
     RedditAPIUtils = require('../utils/RedditAPIUtils'),
-    SubredditStore = require('../stores/SubredditStore');
+    Subreddits = require('./Subreddits.react');
 
 var Reddit = React.createClass({
     
     getInitialState: function() {
-        RedditAPIUtils.getSubreddits();
-
         return {
-
+            currentSubreddit: ''
         };
     },
 
     render: function() {
         return (
-            <h1>Woooo Flux</h1>
+            <div>
+                <h1>Reddit</h1>
+                <Subreddits />
+            </div>
         );
     }
 });

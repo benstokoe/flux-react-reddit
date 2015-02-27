@@ -5,10 +5,13 @@ var RedditAPIUtils = {
     getSubreddits: function() {
         SubredditActions.loadingSubreddits();
 
+        var subreddits = {};
+
         try {
-            // get data
-            console.log('getting data');
-            SubredditActions.loadedSubreddits();
+            API.get('http://www.reddit.com/subreddits/popular.json')
+                .end(function(error, res) {
+                    SubredditActions.loadedSubreddits(res.body.data.children);
+                });
         } catch(e) {
             SubredditActions.errorLoadingSubreddits();
         }

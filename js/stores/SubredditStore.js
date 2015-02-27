@@ -2,9 +2,19 @@ var AppDispatcher = require('../dispatcher/AppDispatcher'),
     EventEmitter = require('events').EventEmitter,
     assign = require('object-assign'),
     CHANGE_EVENT = 'change',
-    SubredditConstants = require('../constants/SubredditConstants');
+    SubredditConstants = require('../constants/SubredditConstants'),
+    _subreddits = {};
+
+function setSubreddits(subreddits) {
+    console.log('Setting subreddits to', subreddits);
+    _subreddits = subreddits;
+}
 
 var SubredditStore = assign({}, EventEmitter.prototype, {
+
+    getSubreddits: function() {
+        return _subreddits;
+    },
 
 	emitChange: function() {
         this.emit(CHANGE_EVENT);
@@ -29,6 +39,8 @@ AppDispatcher.register(function(action) {
 
         case SubredditConstants.SUBREDDITS_LOADING_SUCCESS:
             console.log('loading success');
+            setSubreddits(action.subreddits);
+            SubredditStore.emitChange();
             break;
 
         case SubredditConstants.SUBREDDITS_LOADING_ERROR:

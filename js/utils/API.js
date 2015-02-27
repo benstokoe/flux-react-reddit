@@ -1,8 +1,9 @@
+var request = require('superagent');
+
 var API = {
     get: function(url) {
-        return new Promise(function() {
-            //get data
-        });
+        return request
+                .get(url);
     }
 };
 
