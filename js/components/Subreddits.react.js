@@ -1,6 +1,7 @@
 var React = require('react'),
     _ = require('underscore'),
-    SubredditStore = require('../stores/SubredditStore');
+    SubredditStore = require('../stores/SubredditStore'),
+    SubredditItem = require('./SubredditItem.react');
 
 var Subreddits = React.createClass({
 
@@ -23,7 +24,7 @@ var Subreddits = React.createClass({
     
         if (!_.isEmpty(this.state.popularSubreddits)) {
             this.state.popularSubreddits.map(function(subreddit) {
-                subreddits.push(<p>{subreddit.data.display_name}</p>);
+                subreddits.push(<SubredditItem key={subreddit.data.id} subName={subreddit.data.display_name} />);
             });
         }
 

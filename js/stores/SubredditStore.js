@@ -6,7 +6,6 @@ var AppDispatcher = require('../dispatcher/AppDispatcher'),
     _subreddits = {};
 
 function setSubreddits(subreddits) {
-    console.log('Setting subreddits to', subreddits);
     _subreddits = subreddits;
 }
 
