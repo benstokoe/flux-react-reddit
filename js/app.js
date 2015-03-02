@@ -1,10 +1,13 @@
 var React = require('react'),
+    router = require('./router'),
     Reddit = require('./components/Reddit.react'),
     RedditAPIUtils = require('./utils/RedditAPIUtils');
 
 RedditAPIUtils.getSubreddits();
 
-React.render(
-    <Reddit />,
-    document.getElementById('reddit')
-);
+router.run((Handler) => {
+    React.render(
+        <Handler />,
+        document.getElementById('reddit')
+    );
+});
