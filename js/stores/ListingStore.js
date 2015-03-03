@@ -3,16 +3,16 @@ var AppDispatcher = require('../dispatcher/AppDispatcher'),
     assign = require('object-assign'),
     CHANGE_EVENT = 'change',
     RedditConstants = require('../constants/RedditConstants'),
-    _subreddits = {};
+    _listings = {};
 
-function setSubreddits(subreddits) {
-    _subreddits = subreddits;
+function setListings(listings) {
+    _listings = listings;
 }
 
-var SubredditStore = assign({}, EventEmitter.prototype, {
+var ListingStore = assign({}, EventEmitter.prototype, {
 
-    getSubreddits: function() {
-        return _subreddits;
+    getListings: function() {
+        return _listings;
     },
 
 	emitChange: function() {
@@ -32,17 +32,17 @@ var SubredditStore = assign({}, EventEmitter.prototype, {
 
 AppDispatcher.register(function(action) {
     switch(action.actionType) {
-        case RedditConstants.SUBREDDITS_LOADING:
+        case RedditConstants.LISTINGS_LOADING:
             console.log('loading');
             break;
 
-        case RedditConstants.SUBREDDITS_LOADING_SUCCESS:
+        case RedditConstants.LISTINGS_LOADING_SUCCESS:
             console.log('loading success');
-            setSubreddits(action.subreddits);
-            SubredditStore.emitChange();
+            setListings(action.listings);
+            ListingStore.emitChange();
             break;
 
-        case RedditConstants.SUBREDDITS_LOADING_ERROR:
+        case RedditConstants.LISTINGS_LOADING_ERROR:
             console.log('loading error');
             break;
 
@@ -51,4 +51,4 @@ AppDispatcher.register(function(action) {
     }
 });
 
-module.exports = SubredditStore;
+module.exports = ListingStore;

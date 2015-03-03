@@ -1,6 +1,7 @@
 var React = require('react'),
     RedditAPIUtils = require('../utils/RedditAPIUtils'),
-    Subreddits = require('./Subreddits.react');
+    Subreddits = require('./Subreddits.react'),
+    Listings = require('./Listings.react');
 
 var Reddit = React.createClass({
     
@@ -15,6 +16,7 @@ var Reddit = React.createClass({
             <div>
                 <h1>Reddit</h1>
                 <Subreddits />
+                <Listings subreddit={this.state.currentSubreddit} />
             </div>
         );
     }

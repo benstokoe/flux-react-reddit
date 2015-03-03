@@ -3,5 +3,9 @@ var keyMirror = require('keymirror');
 module.exports = keyMirror({
     SUBREDDITS_LOADING: null,
     SUBREDDITS_LOADING_SUCCESS: null,
-    SUBREDDITS_LOADING_ERROR: null
+    SUBREDDITS_LOADING_ERROR: null,
+    
+    LISTINGS_LOADING: null,
+    LISTINGS_LOADING_SUCCESS: null,
+    LISTINGS_LOADING_ERROR: null
 });

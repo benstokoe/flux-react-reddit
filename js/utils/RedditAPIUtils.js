@@ -1,19 +1,38 @@
-var SubredditActions = require('../actions/SubredditActions'),
+var RedditActions = require('../actions/RedditActions'),
     API = require('./API');
 
 var RedditAPIUtils = {
-    getSubreddits: function() {
-        SubredditActions.loadingSubreddits();
+    url: 'http://www.reddit.com',
 
-        var subreddits = {};
+    getSubreddits: function() {
+        RedditActions.loadingSubreddits();
 
         try {
-            API.get('http://www.reddit.com/subreddits/popular.json')
+            API.get(this.url + '/subreddits/popular.json')
                 .end(function(error, res) {
-                    SubredditActions.loadedSubreddits(res.body.data.children);
+                    RedditActions.loadedSubreddits(res.body.data.children);
                 });
         } catch(e) {
-            SubredditActions.errorLoadingSubreddits();
+            RedditActions.errorLoadingSubreddits();
+        }
+    },
+
+    getListings: function(subreddit) {
+        RedditActions.loadingListings();
+
+        var listingUrl = '/hot.json';
+
+        if (subreddit !== '') {
+            listingUrl = '/r/' + subreddit + '/hot.json';
+        }
+
+        try {
+            API.get(this.url + listingUrl)
+                .end(function(error, res) {
+                    RedditActions.loadedListings(res.body.data.children);
+                });
+        } catch(e) {
+            RedditActions.errorLoadingSubreddits();
         }
     }
 };
