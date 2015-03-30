@@ -4,7 +4,7 @@ var React = require('react'),
     RedditAPIUtils = require('../utils/RedditAPIUtils'),
     ListingItem = require('./ListingItem.react');
 
-var Listing = React.createClass({
+var Listings = React.createClass({
 
     getInitialState: function() {
         return {
@@ -21,19 +21,23 @@ var Listing = React.createClass({
        ListingStore.removeChangeListener(this._onChange);
     }, 
 
+    componentWillReceiveProps: function() {
+        RedditAPIUtils.getListings(this.props.subreddit);
+    },
+
     render: function() {
         var listings = [];
 
         if (!_.isEmpty(this.state.listings)) { 
             this.state.listings.map(function(listing) {
-                listings.push(<ListingItem listing={listing} />);
+                listings.push(<ListingItem key={listing.data.id} listing={listing} />);
             });
         } else {
             listings = <p>Loading</p>;
         }
 
         return (
-            <ul id="listings">
+            <ul id="listings" key={this.props.subreddit}>
                 { listings }
             </ul>
        );
@@ -46,4 +50,4 @@ var Listing = React.createClass({
     }
 });
 
-module.exports = Listing;
+module.exports = Listings;

@@ -1,10 +1,11 @@
-var React = require('react');
+var React = require('react'),
+    { Link } = require('react-router');
 
 var SubredditItem = React.createClass({
 
     render: function() {
         return (
-            <a className="subreddit" href="#">{this.props.subName}</a>
+            <Link to="subreddit" params={{subreddit: this.props.subName }} className="subreddit">{this.props.subName}</Link>
         );
     }
 

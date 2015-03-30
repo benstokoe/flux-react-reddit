@@ -5,7 +5,7 @@ var React = require('react'),
 
 RedditAPIUtils.getSubreddits();
 
-router.run((Handler) => {
+router.run(function (Handler) {
     React.render(
         <Handler />,
         document.getElementById('reddit')

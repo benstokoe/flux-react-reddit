@@ -22,7 +22,7 @@ var RedditAPIUtils = {
 
         var listingUrl = '/hot.json';
 
-        if (subreddit !== '') {
+        if (subreddit !== '' && subreddit !== undefined) {
             listingUrl = '/r/' + subreddit + '/hot.json';
         }
 
