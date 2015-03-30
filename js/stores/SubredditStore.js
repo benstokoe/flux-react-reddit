@@ -33,11 +33,9 @@ var SubredditStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(action) {
     switch(action.actionType) {
         case RedditConstants.SUBREDDITS_LOADING:
-            console.log('loading');
             break;
 
         case RedditConstants.SUBREDDITS_LOADING_SUCCESS:
-            console.log('loading success');
             setSubreddits(action.subreddits);
             SubredditStore.emitChange();
             break;

@@ -33,11 +33,9 @@ var ListingStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(action) {
     switch(action.actionType) {
         case RedditConstants.LISTINGS_LOADING:
-            console.log('loading');
             break;
 
         case RedditConstants.LISTINGS_LOADING_SUCCESS:
-            console.log('loading success');
             setListings(action.listings);
             ListingStore.emitChange();
             break;

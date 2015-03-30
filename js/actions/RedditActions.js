@@ -3,7 +3,6 @@ var AppDispatcher = require('../dispatcher/AppDispatcher'),
 
 var RedditActions = {
     loadingSubreddits: function() {
-        //console.log('RedditActions loadingSubreddits');
         AppDispatcher.dispatch({
             actionType: RedditConstants.SUBREDDITS_LOADING
         });
@@ -17,7 +16,6 @@ var RedditActions = {
     },
 
     errorLoadingSubreddits: function() {
-        //console.log('RedditActions errorLoadingSubreddits');
         AppDispatcher.dispatch({
             actionType: RedditConstants.SUBREDDITS_LOADING_ERROR
         });    
