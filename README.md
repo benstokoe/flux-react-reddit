@@ -21,8 +21,8 @@ To run the app, spin up an HTTP server and visit http://localhost/.../todomvc-fl
 
 ## Todo
 
-[ ] ES6ify
-[ ] Handle loading errors
-[ ] Use Immutable.js
-[ ] ...
-[ ] Styling
+- [ ] ES6ify
+- [ ] Handle loading errors
+- [ ] Use Immutable.js
+- [ ] ...
+- [ ] Styling
