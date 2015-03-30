@@ -1,9 +1,11 @@
-var React = require('react');
+'use strict'
 
-var ListingItem = React.createClass({
+import React from 'react';
+
+const ListingItem = React.createClass({
 
     render: function() {
-        var listing = this.props.listing.data;
+        const listing = this.props.listing.data;
 
         return (
             <li className="listing">
@@ -13,4 +15,4 @@ var ListingItem = React.createClass({
     }
 });
 
-module.exports = ListingItem;
+export default ListingItem;

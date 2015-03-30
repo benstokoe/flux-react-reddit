@@ -1,10 +1,12 @@
-var request = require('superagent');
+'use strict'
 
-var API = {
+import request from 'superagent';
+
+const API = {
     get: function(url) {
         return request
                 .get(url);
     }
 };
 
-module.exports = API;
+export default API;

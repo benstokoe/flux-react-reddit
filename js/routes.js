@@ -1,12 +1,14 @@
-var React = require('react'),
-    { Route, DefaultRoute } = require('react-router'),
-    Reddit = require('./components/Reddit.react');
+'use strict'
 
-var routes = (
+import React from 'react';
+import { Route, DefaultRoute } from 'react-router';
+import Reddit from './components/Reddit.react';
+
+const routes = (
     <Route handler={Reddit} path="/">
         <Route name="subreddit" path="/:subreddit" handler={Reddit} />
         <DefaultRoute handler={Reddit} />
     </Route>
 );
 
-module.exports = routes;
+export default routes;

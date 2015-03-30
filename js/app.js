@@ -1,7 +1,9 @@
-var React = require('react'),
-    router = require('./router'),
-    Reddit = require('./components/Reddit.react'),
-    RedditAPIUtils = require('./utils/RedditAPIUtils');
+'use strict'
+
+import React from 'react';
+import router from './router';
+import Reddit from './components/Reddit.react';
+import RedditAPIUtils from './utils/RedditAPIUtils';
 
 RedditAPIUtils.getSubreddits();
 

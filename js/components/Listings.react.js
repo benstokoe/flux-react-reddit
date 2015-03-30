@@ -1,10 +1,12 @@
-var React = require('react'),
-    _ = require('underscore'),
-    ListingStore = require('../stores/ListingStore'),
-    RedditAPIUtils = require('../utils/RedditAPIUtils'),
-    ListingItem = require('./ListingItem.react');
+'use strict'
 
-var Listings = React.createClass({
+import React from 'react';
+import _ from 'underscore';
+import ListingStore from '../stores/ListingStore';
+import RedditAPIUtils from '../utils/RedditAPIUtils';
+import ListingItem from './ListingItem.react';
+
+const Listings = React.createClass({
 
     getInitialState: function() {
         return {
@@ -26,7 +28,7 @@ var Listings = React.createClass({
     },
 
     render: function() {
-        var listings = [];
+        let listings = [];
 
         if (!_.isEmpty(this.state.listings)) { 
             this.state.listings.map(function(listing) {
@@ -50,4 +52,4 @@ var Listings = React.createClass({
     }
 });
 
-module.exports = Listings;
+export default Listings;

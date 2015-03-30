@@ -1,7 +1,9 @@
-var React = require('react'),
-    { Link } = require('react-router');
+'use strict'
 
-var SubredditItem = React.createClass({
+import React from 'react';
+import { Link } from 'react-router';
+
+const SubredditItem = React.createClass({
 
     render: function() {
         return (
@@ -11,4 +13,4 @@ var SubredditItem = React.createClass({
 
 });
 
-module.exports = SubredditItem;
+export default SubredditItem;

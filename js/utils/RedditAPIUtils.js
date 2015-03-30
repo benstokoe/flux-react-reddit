@@ -1,7 +1,9 @@
-var RedditActions = require('../actions/RedditActions'),
-    API = require('./API');
+'use strict'
 
-var RedditAPIUtils = {
+import RedditActions from '../actions/RedditActions';
+import API from './API';
+
+const RedditAPIUtils = {
     url: 'http://www.reddit.com',
 
     getSubreddits: function() {
@@ -20,7 +22,7 @@ var RedditAPIUtils = {
     getListings: function(subreddit) {
         RedditActions.loadingListings();
 
-        var listingUrl = '/hot.json';
+        let listingUrl = '/hot.json';
 
         if (subreddit !== '' && subreddit !== undefined) {
             listingUrl = '/r/' + subreddit + '/hot.json';
@@ -37,4 +39,4 @@ var RedditAPIUtils = {
     }
 };
 
-module.exports = RedditAPIUtils;
+export default RedditAPIUtils;

@@ -1,6 +1,8 @@
-var keyMirror = require('keymirror');
+'use strict'
 
-module.exports = keyMirror({
+import keyMirror from 'keymirror';
+
+export default keyMirror({
     SUBREDDITS_LOADING: null,
     SUBREDDITS_LOADING_SUCCESS: null,
     SUBREDDITS_LOADING_ERROR: null,

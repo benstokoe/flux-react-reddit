@@ -1,15 +1,19 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher'),
-    EventEmitter = require('events').EventEmitter,
-    assign = require('object-assign'),
-    CHANGE_EVENT = 'change',
-    RedditConstants = require('../constants/RedditConstants'),
-    _subreddits = {};
+'use strict'
+
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import { EventEmitter } from 'events';
+import assign from 'object-assign';
+import RedditConstants from '../constants/RedditConstants';
+
+const CHANGE_EVENT = 'change';
+
+let _subreddits = {};
 
 function setSubreddits(subreddits) {
     _subreddits = subreddits;
 }
 
-var SubredditStore = assign({}, EventEmitter.prototype, {
+const SubredditStore = assign({}, EventEmitter.prototype, {
 
     getSubreddits: function() {
         return _subreddits;
@@ -49,4 +53,4 @@ AppDispatcher.register(function(action) {
     }
 });
 
-module.exports = SubredditStore;
+export default SubredditStore;

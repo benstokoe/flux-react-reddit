@@ -1,7 +1,9 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher'),
-    RedditConstants = require('../constants/RedditConstants');
+'use strict'
 
-var RedditActions = {
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import RedditConstants from '../constants/RedditConstants';
+
+const RedditActions = {
     loadingSubreddits: function() {
         AppDispatcher.dispatch({
             actionType: RedditConstants.SUBREDDITS_LOADING
@@ -41,4 +43,4 @@ var RedditActions = {
     }
 };
 
-module.exports = RedditActions;
+export default RedditActions;

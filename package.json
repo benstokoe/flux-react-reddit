@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "babel-jest": "^4.0.0",
+    "babelify": "^5.0.4",
     "browserify": "^9.0.3",
     "del": "^1.1.1",
     "envify": "^3.0.0",
@@ -41,12 +42,8 @@
   "author": "Bill Fisher",
   "browserify": {
     "transform": [
-      [
-        "reactify",
-        {
-          "es6": true
-        }
-      ],
+      "babelify",
+      "reactify",
       "envify"
     ]
   },

@@ -1,9 +1,11 @@
-var React = require('react'),
-    _ = require('underscore'),
-    SubredditStore = require('../stores/SubredditStore'),
-    SubredditItem = require('./SubredditItem.react');
+'use strict'
 
-var Subreddits = React.createClass({
+import React from 'react';
+import _ from 'underscore';
+import SubredditStore from '../stores/SubredditStore';
+import SubredditItem from './SubredditItem.react';
+
+const Subreddits = React.createClass({
 
     getInitialState: function() {
         return {
@@ -20,7 +22,7 @@ var Subreddits = React.createClass({
     }, 
     
     render: function() {
-        var subreddits = [];
+        let subreddits = [];
     
         if (!_.isEmpty(this.state.popularSubreddits)) {
             this.state.popularSubreddits.map(function(subreddit) {
@@ -44,4 +46,4 @@ var Subreddits = React.createClass({
 
 });
 
-module.exports = Subreddits;
+export default Subreddits;

@@ -1,10 +1,12 @@
-var React = require('react'),
-    { State } = require('react-router'),
-    RedditAPIUtils = require('../utils/RedditAPIUtils'),
-    Subreddits = require('./Subreddits.react'),
-    Listings = require('./Listings.react');
+'use strict'
 
-var Reddit = React.createClass({
+import React from 'react';
+import { State } from 'react-router';
+import RedditAPIUtils from '../utils/RedditAPIUtils';
+import Subreddits from './Subreddits.react';
+import Listings from './Listings.react';
+
+const Reddit = React.createClass({
 
     mixins: [ State ],
     
@@ -39,4 +41,4 @@ var Reddit = React.createClass({
     }
 });
 
-module.exports = Reddit;
+export default Reddit;

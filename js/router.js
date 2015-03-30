@@ -1,4 +1,6 @@
-var router;
+'use strict'
+
+let router;
 
 module.exports = {
     makePath: function(to, params, query) {
@@ -26,8 +28,8 @@ module.exports = {
     }
 };
 
-var routes = require('./routes'),
-    Router = require('react-router');
+import routes from './routes';
+import Router from 'react-router';
 
 router = Router.create({
     routes: routes

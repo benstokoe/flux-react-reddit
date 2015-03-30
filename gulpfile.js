@@ -32,17 +32,17 @@ gulp.task('jest', function() {
 gulp.task('watch', function() {
     gulp.watch('css/*', ['scss']);
     gulp.watch('js/index.hbs', ['handlebars']);
+
+    watchify(bundler, watchify.args);
+    bundler.on('update', bundle); // on any dep update, runs the bundler
 });
 
 gulp.task('clean', function() {
     del('dist/', { force: true });
 });
 
-var bundler = watchify(browserify('./js/app.js', watchify.args));
-// add any other browserify options or transforms here
-bundler.transform(reactify); 
+var bundler = browserify('./js/app.js');
 gulp.task('browserify', bundle); // so you can run `gulp js` to build the file
-bundler.on('update', bundle); // on any dep update, runs the bundler
 bundler.on('log', gutil.log); // output build logs to terminal
 
 function bundle() {
@@ -50,7 +50,6 @@ function bundle() {
     // log errors if they happen
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source('bundle.js'))
-    // optional, remove if you dont want sourcemaps
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
     .pipe(sourcemaps.write('./')) // writes .map file
