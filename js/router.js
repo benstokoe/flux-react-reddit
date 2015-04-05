@@ -29,9 +29,8 @@ module.exports = {
 };
 
 import routes from './routes';
-import { create, HistoryLocation } from 'react-router';
+import Router from 'react-router';
 
-router = create({
-    location: HistoryLocation,
+router = Router.create({
     routes: routes
 });
