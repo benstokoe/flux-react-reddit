@@ -6,10 +6,11 @@ const ListingItem = React.createClass({
 
     render: function() {
         const listing = this.props.listing.data;
+        const link = 'http://reddit.com' + listing.permalink;
 
         return (
             <li className="listing">
-                <a href={listing.permalink}>{ listing.title }</a>
+                <a href={ link }>{ listing.title }</a>
             </li>
         );
     }
