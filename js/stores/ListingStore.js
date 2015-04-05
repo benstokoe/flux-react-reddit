@@ -4,19 +4,20 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 import { EventEmitter } from 'events';
 import assign from 'object-assign';
 import RedditConstants from '../constants/RedditConstants';
+import Immutable from 'immutable';
 
 const CHANGE_EVENT = 'change';
 
-let _listings = {};
+let _listings;
 
 function setListings(listings) {
-    _listings = listings;
+    _listings = Immutable.List(listings);
 }
 
 const ListingStore = assign({}, EventEmitter.prototype, {
 
     getListings: function() {
-        return _listings;
+        return _listings.toArray();
     },
 
 	emitChange: function() {

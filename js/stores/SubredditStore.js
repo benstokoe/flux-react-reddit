@@ -4,13 +4,14 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 import { EventEmitter } from 'events';
 import assign from 'object-assign';
 import RedditConstants from '../constants/RedditConstants';
+import Immutable from 'immutable';
 
 const CHANGE_EVENT = 'change';
 
-let _subreddits = {};
+let _subreddits;
 
 function setSubreddits(subreddits) {
-    _subreddits = subreddits;
+    _subreddits = Immutable.List(subreddits);
 }
 
 const SubredditStore = assign({}, EventEmitter.prototype, {

@@ -19,9 +19,12 @@ This will perform an initial build and start a watcher process that will update 
 
 To run the app, spin up an HTTP server and visit http://localhost/.../todomvc-flux/.  Or simply open the index.html file in a browser.
 
+## Notes
+
+Uses Immutable.js. Not sure if it's the best practice what I did but still learning.
+
 ## Todo
 
 - [ ] Handle loading errors
-- [ ] Use Immutable.js
 - [ ] ...
 - [ ] Styling
